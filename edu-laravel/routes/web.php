@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AppController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Front-end
+Route::get('/', [AppController::class, 'index'])->name('home');
+Route::get('noticias', [AppController::class, 'noticias'])->name('noticias');
+Route::get('noticia/{slug}', [AppController::class, 'noticia'])->name('noticia');
+Route::get('acerca-de', [AppController::class, 'acercade'])->name('acerca-de');
+
+//Back-end
+Route::get('admin', [AppController::class, 'index'])->name('admin');
