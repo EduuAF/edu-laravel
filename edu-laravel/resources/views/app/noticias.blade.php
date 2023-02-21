@@ -2,7 +2,9 @@
 
 @section('content')
 
-    <h3>Inicio</h3>
+    <h3>
+        <a href="{{ route('home') }}" title="Inicio">Inicio</a> <span>| Noticias</span>
+    </h3>
     <div class="row">
 
         @foreach ($rowset as $row)
