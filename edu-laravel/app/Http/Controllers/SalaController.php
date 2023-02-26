@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Noticia;
-use App\Http\Requests\NoticiaRequest;
+use App\Models\Sala;
+use App\Http\Requests\SalaRequest;
 use App\Helpers\Funciones;
 
-class NoticiaController extends Controller
+class SalaController extends Controller
 {
     public function __construct()
     {
@@ -28,10 +28,10 @@ class NoticiaController extends Controller
         //Página a mostrar
         $pagina = ($request->pagina) ? $request->pagina : 1;
 
-        //Obtengo todas las noticias ordenadas por fecha más reciente
-        $rowset = Noticia::orderBy("fecha","DESC")->paginate(2,['*'],'pagina',$pagina);
+        //Obtengo todas las salas ordenadas por fecha más reciente
+        $rowset = Sala::orderBy("fecha","DESC")->paginate(2,['*'],'pagina',$pagina);
 
-        return view('admin.noticias.index',[
+        return view('admin.salas.index',[
             'rowset' => $rowset,
         ]);
     }
@@ -44,7 +44,7 @@ class NoticiaController extends Controller
     public function crear()
     {
         //Creo un nuevo usuario vacío
-        $row = new Noticia();
+        $row = new Sala();
 
         return view('admin.noticias.editar',[
             'row' => $row,
@@ -54,12 +54,12 @@ class NoticiaController extends Controller
     /**
      * Guardar un nuevo elemento en la bbdd
      *
-     * @param  \App\Http\Requests\NoticiaRequest  $request
+     * @param  \App\Http\Requests\SalaRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function guardar(NoticiaRequest $request)
+    public function guardar(SalaRequest $request)
     {
-        $row = Noticia::create([
+        $row = Sala::create([
             'titulo' => $request->titulo,
             'entradilla' => $request->entradilla,
             'slug' => Funciones::getSlug($request->titulo),
@@ -73,14 +73,14 @@ class NoticiaController extends Controller
             $archivo = $request->file('imagen');
             $nombre = $archivo->getClientOriginalExtension();
             $archivo->move(public_path()."/img/", $nombre);
-            Noticia::where('id', $row->id)->update(['imagen' => $nombre]);
+            Sala::where('id', $row->id)->update(['imagen' => $nombre]);
             $texto = " e imagen subida.";
         }
         else{
             $texto = ".";
         }
 
-        return redirect('admin/noticias')->with('success', 'Noticia <strong>'.$request->titulo.'</strong> creada'.$texto);
+        return redirect('admin/salas')->with('success', 'Sala <strong>'.$request->titulo.'</strong> creada'.$texto);
     }
 
     /**
@@ -91,8 +91,8 @@ class NoticiaController extends Controller
      */
     public function editar($id)
     {
-        //Obtengo la noticia o muestro error
-        $row = Noticia::where('id', $id)->firstOrFail();
+        //Obtengo la sala o muestro error
+        $row = Sala::where('id', $id)->firstOrFail();
 
         return view('admin.noticias.editar',[
             'row' => $row,
@@ -102,15 +102,15 @@ class NoticiaController extends Controller
     /**
      * Actualizar un elemento en la bbdd
      *
-     * @param  \App\Http\Requests\NoticiaRequest  $request
+     * @param  \App\Http\Requests\SalaRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function actualizar(NoticiaRequest $request, $id)
+    public function actualizar(SalaRequest $request, $id)
     {
-        $row = Noticia::findOrFail($id);
+        $row = Sala::findOrFail($id);
 
-        Noticia::where('id', $row->id)->update([
+        Sala::where('id', $row->id)->update([
             'titulo' => $request->titulo,
             'entradilla' => $request->entradilla,
             'slug' => Funciones::getSlug($request->titulo),
@@ -124,14 +124,14 @@ class NoticiaController extends Controller
             $archivo = $request->file('imagen');
             $nombre = $archivo->getClientOriginalExtension();
             $archivo->move(public_path()."/img/", $nombre);
-            Noticia::where('id', $row->id)->update(['imagen' => $nombre]);
+            Sala::where('id', $row->id)->update(['imagen' => $nombre]);
             $texto = " e imagen subida.";
         }
         else{
             $texto = ".";
         }
 
-        return redirect('admin/noticias')->with('success', 'Noticia <strong>'.$request->titulo.'</strong> guardada'.$texto);
+        return redirect('admin/salas')->with('success', 'Sala <strong>'.$request->titulo.'</strong> guardada'.$texto);
     }
 
     /**
@@ -142,13 +142,13 @@ class NoticiaController extends Controller
      */
     public function activar($id)
     {
-        $row = Noticia::findOrFail($id);
+        $row = Sala::findOrFail($id);
         $valor = ($row->activo) ? 0 : 1;
         $texto = ($row->activo) ? "desactivada" : "activada";
 
-        Noticia::where('id', $row->id)->update(['activo' => $valor]);
+        Sala::where('id', $row->id)->update(['activo' => $valor]);
 
-        return redirect('admin/noticias')->with('success', 'Noticia <strong>'.$row->titulo.'</strong> '.$texto.'.');
+        return redirect('admin/salas')->with('success', 'Sala <strong>'.$row->titulo.'</strong> '.$texto.'.');
     }
 
     /**
@@ -159,13 +159,13 @@ class NoticiaController extends Controller
      */
     public function home($id)
     {
-        $row = Noticia::findOrFail($id);
+        $row = Sala::findOrFail($id);
         $valor = ($row->home) ? 0 : 1;
         $texto = ($row->home) ? "no se muestra en la home" : "se muestra en la home";
 
-        Noticia::where('id', $row->id)->update(['home' => $valor]);
+        Sala::where('id', $row->id)->update(['home' => $valor]);
 
-        return redirect('admin/noticias')->with('success', 'Noticia <strong>'.$row->titulo.'</strong> '.$texto.'.');
+        return redirect('admin/salas')->with('success', 'Sala <strong>'.$row->titulo.'</strong> '.$texto.'.');
     }
 
     /**
@@ -176,9 +176,9 @@ class NoticiaController extends Controller
      */
     public function borrar($id)
     {
-        $row = Noticia::findOrFail($id);
+        $row = Sala::findOrFail($id);
 
-        Noticia::destroy($row->id);
+        Sala::destroy($row->id);
 
         //Borrar imagen
         if ($row->imagen){
@@ -188,6 +188,6 @@ class NoticiaController extends Controller
             }
         }
 
-        return redirect('admin/noticias')->with('success', 'Noticia <strong>'.$row->titulo.'</strong> borrada.');
+        return redirect('admin/salas')->with('success', 'Sala <strong>'.$row->titulo.'</strong> borrada.');
     }
 }

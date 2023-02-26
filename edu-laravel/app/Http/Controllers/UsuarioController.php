@@ -62,7 +62,7 @@ class UsuarioController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'usuarios' => ($request->usuarios) ? 1 : 0,
-            'noticias' => ($request->noticias) ? 1 : 0,
+            'salas' => ($request->salas) ? 1 : 0,
         ]);
 
         return redirect('admin/usuarios')->with('success', 'Usuario <strong>'.$request->nombre.'</strong> creado');
@@ -100,7 +100,7 @@ class UsuarioController extends Controller
             'email' => $request->email,
             'password' => ($request->cambiar_clave) ? Hash::make($request->password) : $row->password,
             'usuarios' => ($request->usuarios) ? 1 : 0,
-            'noticias' => ($request->noticias) ? 1 : 0,
+            'salas' => ($request->salas) ? 1 : 0,
         ]);
 
         return redirect('admin/usuarios')->with('success', 'Usuario <strong>'.$request->nombre.'</strong> guardado');

@@ -34,7 +34,7 @@
                                 {{ $row->nombre }}
                             </h4>
                             <strong>Usuarios: </strong>{{ ($row->usuarios) ? "Sí" : "No" }}<br>
-                            <strong>Noticias: </strong>{{ ($row->noticias) ? "Sí" : "No" }}
+                            <strong>Salas: </strong>{{ ($row->salas) ? "Sí" : "No" }}
                         </div>
                         <div class="card-action">
                             <a href="{{ url("admin/usuarios/editar/".$row->id) }}" title="Editar">

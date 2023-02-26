@@ -1,36 +1,36 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Noticia;
+use App\Models\Sala;
 
 class AppController extends Controller
 {
     public function index()
     {
-        //Obtengo las noticias a mostrar en la home
-        $rowset = Noticia::where('activo', 1)->where('home', 1)->orderBy('fecha', 'DESC')->get();
+        //Obtengo las salas a mostrar en la home
+        $rowset = Sala::where('activo', 1)->where('home', 1)->orderBy('fecha', 'DESC')->get();
 
         return view('app.index',[
             'rowset' => $rowset,
         ]);
     }
 
-    public function noticias()
+    public function salas()
     {
-        //Obtengo las noticias a mostrar en el listado de noticias
-        $rowset = Noticia::where('activo', 1)->orderBy('fecha', 'DESC')->get();
+        //Obtengo las salas a mostrar en el listado de salas
+        $rowset = Sala::where('activo', 1)->orderBy('fecha', 'DESC')->get();
 
-        return view('app.noticias',[
+        return view('app.salas',[
             'rowset' => $rowset,
         ]);
     }
 
-    public function noticia($slug)
+    public function sala($slug)
     {
-        //Obtengo la noticia o muestro error
-        $row = Noticia::where('activo', 1)->where('slug', $slug)->firstOrFail();
+        //Obtengo la sala o muestro error
+        $row = Sala::where('activo', 1)->where('slug', $slug)->firstOrFail();
 
-        return view('app.noticia',[
+        return view('app.sala',[
             'row' => $row,
         ]);
     }
@@ -44,27 +44,27 @@ class AppController extends Controller
 
     public function mostrar(){
 
-        //Obtengo las noticias a mostrar en el listado de noticias
-        $rowset = Noticia::where('activo', 1)->orderBy('fecha', 'DESC')->get();
+        //Obtengo las salas a mostrar en el listado de salas
+        $rowset = Sala::where('activo', 1)->orderBy('fecha', 'DESC')->get();
 
         //Opción rápida (datos completos)
-        //$noticias = $rowset;
+        //$salas = $rowset;
 
         //Opción personalizada
         foreach ($rowset as $row){
-            $noticias[] = [
+            $salas[] = [
                 'titulo' => $row->titulo,
                 'entradilla' => $row->entradilla,
                 'autor' => $row->autor,
                 'fecha' => date("d/m/Y", strtotime($row->fecha)),
-                'enlace' => url("noticia/".$row->slug),
+                'enlace' => url("sala/".$row->slug),
                 'imagen' => asset("img/".$row->imagen)
             ];
         }
 
         //Devuelvo JSON
         return response()->json(
-            $noticias, //Array de objetos
+            $salas, //Array de objetos
             200, //Tipo de respuesta
             [], //Headers
             JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE //Opciones de escape

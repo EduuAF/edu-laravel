@@ -4,7 +4,7 @@
 
     <h3>
         <a href="{{ route("admin") }}" title="Inicio">Inicio</a> <span>| </span>
-        <a href="{{ url("admin/noticias") }}" title="Noticias">Salas</a> <span>| </span>
+        <a href="{{ url("admin/salas") }}" title="Salas">Salas</a> <span>| </span>
         @if ($row->id)
             <span>Editar {{ $row->titulo }}</span>
         @else
@@ -13,7 +13,7 @@
     </h3>
     <div class="row">
         @php $accion = ($row->id) ? "actualizar/".$row->id : "guardar" @endphp
-        <form class="col s12" method="POST" enctype="multipart/form-data" action="{{ url("admin/noticias/".$accion) }}">
+        <form class="col s12" method="POST" enctype="multipart/form-data" action="{{ url("admin/salas/".$accion) }}">
             @csrf
             <div class="col m12 l6">
                 <div class="row">
@@ -60,7 +60,7 @@
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <a href="{{ url("admin/noticias/") }}" title="Volver">
+                    <a href="{{ url("admin/salas/") }}" title="Volver">
                         <button class="btn waves-effect waves-light" type="button">Volver
                             <i class="material-icons right">replay</i>
                         </button>

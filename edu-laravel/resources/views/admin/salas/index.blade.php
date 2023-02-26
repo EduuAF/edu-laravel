@@ -22,7 +22,7 @@
                         </h4><br><br>
                     </div>
                     <div class="card-action">
-                        <a href="{{ url("admin/noticias/crear") }}" title="Añadir nueva noticia">
+                        <a href="{{ url("admin/salas/crear") }}" title="Añadir nueva sala">
                             <i class="material-icons">add_circle</i>
                         </a>
                     </div>
@@ -49,7 +49,7 @@
                             <strong>Fecha:</strong> {{ date("d/m/Y", strtotime($row->fecha)) }}
                         </div>
                         <div class="card-action">
-                            <a href="{{ url("admin/noticias/editar/".$row->id) }}" title="Editar">
+                            <a href="{{ url("admin/salas/editar/".$row->id) }}" title="Editar">
                                 <i class="material-icons">edit</i>
                             </a>
                             @php
@@ -57,14 +57,14 @@
                                 $color = ($row->activo == 1) ? "green-text" : "red-text";
                                 $icono = ($row->activo == 1) ? "mood" : "mood_bad";
                             @endphp
-                            <a href="{{ url("admin/noticias/activar/".$row->id) }}" title="{{ $title }}">
+                            <a href="{{ url("admin/salas/activar/".$row->id) }}" title="{{ $title }}">
                                 <i class="{{ $color }} material-icons">{{ $icono }}</i>
                             </a>
                             @php
                                 $title = ($row->home == 1) ? "Quitar de la home" : "Mostrar en la home";
                                 $color = ($row->home == 1) ? "green-text" : "red-text";
                             @endphp
-                            <a href="{{ url("admin/noticias/home/".$row->id) }}" title="{{ $title }}">
+                            <a href="{{ url("admin/salas/home/".$row->id) }}" title="{{ $title }}">
                                 <i class="{{ $color }} material-icons">home</i>
                             </a>
                             <a href="#" class="activator" title="Borrar">
@@ -74,12 +74,12 @@
                     </div>
                     <!--Confirmación de borrar-->
                     <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Borrar noticia<i class="material-icons right">close</i></span>
+                        <span class="card-title grey-text text-darken-4">Borrar sala<i class="material-icons right">close</i></span>
                         <p>
-                            ¿Está seguro de que quiere borrar la noticia<strong>{{ $row->titulo }}</strong>?<br>
+                            ¿Está seguro de que quiere borrar la sala<strong>{{ $row->titulo }}</strong>?<br>
                             Esta acción no se puede deshacer.
                         </p>
-                        <a href="{{ url("admin/noticias/borrar/".$row->id) }}" title="Borrar">
+                        <a href="{{ url("admin/salas/borrar/".$row->id) }}" title="Borrar">
                             <button class="btn waves-effect waves-light" type="button">Borrar
                                 <i class="material-icons right">delete</i>
                             </button>

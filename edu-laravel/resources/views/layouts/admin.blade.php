@@ -36,9 +36,9 @@
                 <li>
                     <a href="{{ route('admin') }}" title="Inicio">Inicio</a>
                 </li>
-                @if( Auth::user()->noticias )
+                @if( Auth::user()->salas )
                     <li>
-                        <a href="{{ url('admin/noticias') }}" title="Noticias">Noticias</a>
+                        <a href="{{ url('admin/salas') }}" title="Salas">Salas</a>
                     </li>
                 @endif
                 @if( Auth::user()->usuarios )
@@ -66,9 +66,9 @@
         <li>
             <a href="{{ route('admin') }}" title="Inicio">Inicio</a>
         </li>
-        @if( Auth::user()->noticias )
+        @if( Auth::user()->salas )
             <li>
-                <a href="{{ url('admin/noticias') }}" title="Noticias">Noticias</a>
+                <a href="{{ url('admin/salas') }}" title="Salas">Salas</a>
             </li>
         @endif
         @if( Auth::user()->usuarios )

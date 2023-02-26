@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class NoticiaRequest extends FormRequest
+class SalaRequest extends FormRequest
 {
     /**
      * Determina si el usuario está autorizado a hacer este request

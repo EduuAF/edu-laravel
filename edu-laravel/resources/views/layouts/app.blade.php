@@ -36,7 +36,7 @@
                 <a href="{{ route('home') }}" title="Inicio">Inicio</a>
             </li>
             <li>
-                <a href="{{ route('noticias') }}" title="Noticias">Salas</a>
+                <a href="{{ route('salas') }}" title="Salas">Salas</a>
             </li>
             <li>
                 <a href="{{ route('acerca-de') }}" title="Acerca de">Sobre nosotros</a>
@@ -57,7 +57,7 @@
         <a href="{{ route('home') }}" title="Inicio">Inicio</a>
     </li>
     <li>
-        <a href="{{ route('noticias') }}" title="Noticias">Salas</a>
+        <a href="{{ route('salas') }}" title="Salas">Salas</a>
     </li>
     <li>
         <a href="{{ route('acerca-de') }}" title="Acerca de">Acerca de</a>

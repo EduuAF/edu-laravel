@@ -23,7 +23,7 @@
                             <p>{{ date("d/m/Y", strtotime($row->fecha)) }}</p>
                         </div>
                         <div class="card-action">
-                            <a href="{{ url('noticia/'.$row->slug) }}">Más información</a>
+                            <a href="{{ url('sala/'.$row->slug) }}">Más información</a>
                         </div>
                     </div>
                 </div>

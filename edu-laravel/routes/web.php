@@ -5,7 +5,7 @@ use App\Http\Controllers\AppController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UsuarioController;
-use App\Http\Controllers\NoticiaController;
+use App\Http\Controllers\SalaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +20,8 @@ use App\Http\Controllers\NoticiaController;
 
 //Front-end
 Route::get('/', [AppController::class, 'index'])->name('home');
-Route::get('noticias', [AppController::class, 'noticias'])->name('noticias');
-Route::get('noticia/{slug}', [AppController::class, 'noticia'])->name('noticia');
+Route::get('salas', [AppController::class, 'salas'])->name('salas');
+Route::get('sala/{slug}', [AppController::class, 'sala'])->name('sala');
 Route::get('acerca-de', [AppController::class, 'acercade'])->name('acerca-de');
 
 //Back-end
@@ -36,14 +36,14 @@ Route::get('admin/usuarios/borrar/{id}', [UsuarioController::class, 'borrar'])->
 
 //Back-end
 Route::get('admin', [AdminController::class, 'index'])->name('admin');
-Route::get('admin/noticias', [NoticiaController::class, 'index'])->middleware('role:noticias');
-Route::get('admin/noticias/crear', [NoticiaController::class, 'crear'])->middleware('role:noticias');
-Route::post('admin/noticias/guardar', [NoticiaController::class, 'guardar'])->middleware('role:noticias');
-Route::get('admin/noticias/editar/{id}', [NoticiaController::class, 'editar'])->middleware('role:noticias');
-Route::post('admin/noticias/actualizar/{id}', [NoticiaController::class, 'actualizar'])->middleware('role:noticias');
-Route::get('admin/noticias/activar/{id}', [NoticiaController::class, 'activar'])->middleware('role:noticias');
-Route::get('admin/noticias/home/{id}', [NoticiaController::class, 'home'])->middleware('role:noticias');
-Route::get('admin/noticias/borrar/{id}', [NoticiaController::class, 'borrar'])->middleware('role:noticias');
+Route::get('admin/salas', [SalaController::class, 'index'])->middleware('role:salas');
+Route::get('admin/salas/crear', [SalaController::class, 'crear'])->middleware('role:salas');
+Route::post('admin/salas/guardar', [SalaController::class, 'guardar'])->middleware('role:salas');
+Route::get('admin/salas/editar/{id}', [SalaController::class, 'editar'])->middleware('role:salas');
+Route::post('admin/salas/actualizar/{id}', [SalaController::class, 'actualizar'])->middleware('role:salas');
+Route::get('admin/salas/activar/{id}', [SalaController::class, 'activar'])->middleware('role:salas');
+Route::get('admin/salas/home/{id}', [SalaController::class, 'home'])->middleware('role:salas');
+Route::get('admin/salas/borrar/{id}', [SalaController::class, 'borrar'])->middleware('role:salas');
 
 //Auth
 Route::get('acceder', [AuthController::class, 'acceder'])->name('acceder');
@@ -53,7 +53,7 @@ Route::post('registrarse', [AuthController::class, 'registrarse'])->name('regist
 Route::post('salir', [AuthController::class, 'salir'])->name('salir');
 Route::get('email', [AuthController::class, 'email'])->name('email');
 
-//API Noticias
+//API Salas
 Route::get('mostrar', [AppController::class, 'mostrar'])->name('mostrar');
 Route::get('leer', [AppController::class, 'leer'])->name('leer');
 

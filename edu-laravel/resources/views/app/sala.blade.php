@@ -4,13 +4,13 @@
 
     <h3>
         <a href="{{ route('home') }}" title="Inicio">Inicio</a> <span>| </span>
-        <a href="{{ route('noticias') }}" title="Noticias">Salas</a> <span>| </span>
+        <a href="{{ route('salas') }}" title="Salas">Salas</a> <span>| </span>
         <span>{{ $row->titulo }}</span>
     </h3>
     <div class="row">
 
         <article class="col s12">
-            <div class="card horizontal large noticia">
+            <div class="card horizontal large sala">
                 <div class="card-image">
                     {{ Html::image('img/'.$row->imagen, $row->titulo) }}
                 </div>

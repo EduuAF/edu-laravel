@@ -43,8 +43,8 @@
             <div class="row">
                 <p>Permisos</p>
                 <p>
-                    <label for="noticias">
-                        <input id="noticias" name="noticias" type="checkbox" {{ ($row->noticias == 1) ? "checked" : "" }}>
+                    <label for="salas">
+                        <input id="salas" name="salas" type="checkbox" {{ ($row->salas == 1) ? "checked" : "" }}>
                         <span>Salas</span>
                     </label>
                 </p>
