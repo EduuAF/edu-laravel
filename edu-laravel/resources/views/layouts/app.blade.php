@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="title" content="Noticias de Harry Potter">
+    <meta name="title" content="Salas de Poker">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Noticias de Harry Potter') }}</title>
+    <title>{{ config('app.name', 'Salas de Poker') }}</title>
 
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -24,7 +24,7 @@
     <div class="nav-wrapper">
         <!--Logo-->
         <a href="{{ route('home') }}" class="brand-logo" title="Inicio">
-            {{ Html::image('img/logo.svg', 'Logo Harry Potter') }}
+            {{ Html::image('img/logo.svg', 'Logo Dragon') }}
         </a>
 
         <!--Botón menú móviles-->
@@ -36,10 +36,10 @@
                 <a href="{{ route('home') }}" title="Inicio">Inicio</a>
             </li>
             <li>
-                <a href="{{ route('noticias') }}" title="Noticias">Noticias</a>
+                <a href="{{ route('noticias') }}" title="Noticias">Salas</a>
             </li>
             <li>
-                <a href="{{ route('acerca-de') }}" title="Acerca de">Acerca de</a>
+                <a href="{{ route('acerca-de') }}" title="Acerca de">Sobre nosotros</a>
             </li>
             <li>
                 <a href="{{ route('admin') }}" title="Panel de administración" target="_blank" class="grey-text">
@@ -57,7 +57,7 @@
         <a href="{{ route('home') }}" title="Inicio">Inicio</a>
     </li>
     <li>
-        <a href="{{ route('noticias') }}" title="Noticias">Noticias</a>
+        <a href="{{ route('noticias') }}" title="Noticias">Salas</a>
     </li>
     <li>
         <a href="{{ route('acerca-de') }}" title="Acerca de">Acerca de</a>
@@ -72,8 +72,8 @@
 <main>
 
     <header>
-        <h1>Mi primer CMS</h1>
-        <h2>con Laravel</h2>
+        <h1>Bienvenidos a mi web!</h1>
+        <h2>Amantes del Poker</h2>
     </header>
 
     <section class="container-fluid">
@@ -87,8 +87,8 @@
 
 <footer class="center-align">
     © <?php echo date("Y") ?>
-    <a href="https://jairogarciarincon.com" target="_blank" title="Jairo García Rincón">
-        Jairo García Rincón
+    <a href="http://18.169.25.65/PracticaCMS/cms-laravel/public/index.php" target="_blank" title="Eduardo Aroca Fernández">
+       - Eduardo Aroca Fernández
     </a>
 </footer>
 

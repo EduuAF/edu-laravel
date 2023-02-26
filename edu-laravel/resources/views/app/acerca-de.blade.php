@@ -3,7 +3,7 @@
 @section('content')
 
     <h3>
-        <a href="{{ route('home') }}" title="Inicio">Inicio</a> <span>| Acerca de</span>
+        <a href="{{ route('home') }}" title="Inicio">Inicio</a> <span>| Sobre nosotros</span>
     </h3>
     <div class="row">
         <i class="large material-icons">info_outline</i>

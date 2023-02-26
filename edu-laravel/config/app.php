@@ -249,6 +249,8 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Funciones' => App\Helpers\Funciones::class,
+        'Vistas' => App\Helpers\Vistas::class,
     ])->toArray(),
 
 ];

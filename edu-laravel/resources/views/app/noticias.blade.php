@@ -3,7 +3,7 @@
 @section('content')
 
     <h3>
-        <a href="{{ route('home') }}" title="Inicio">Inicio</a> <span>| Noticias</span>
+        <a href="{{ route('home') }}" title="Inicio">Inicio</a> <span>| Salas</span>
     </h3>
     <div class="row">
 

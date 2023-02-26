@@ -4,7 +4,7 @@
 
     <h3>
         <a href="{{ route('home') }}" title="Inicio">Inicio</a> <span>| </span>
-        <a href="{{ route('noticias') }}" title="Noticias">Noticias</a> <span>| </span>
+        <a href="{{ route('noticias') }}" title="Noticias">Salas</a> <span>| </span>
         <span>{{ $row->titulo }}</span>
     </h3>
     <div class="row">
