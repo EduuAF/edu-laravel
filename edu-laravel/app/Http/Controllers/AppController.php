@@ -75,7 +75,7 @@ class AppController extends Controller
     public function leer(){
 
         //Url de destino
-        $url = "http://13.37.88.251/cms-laravel/public/index.php/mostrar";
+        $url = "http://13.41.79.144/villoldo-laravel/public/index.php/mostrar";
 
         //Parseo datos a un array
         $rowset = json_decode(file_get_contents($url), true);
